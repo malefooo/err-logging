@@ -24,22 +24,32 @@ where
 macro_rules! ctx {
     () => {
         (
-            &get(),   // uid
-            file!(), // cur file
-            line!(), // cur line
+            &sync_get(), // uid
+            file!(),     // cur file
+            line!(),     // cur line
+        )
+    };
+}
+
+#[macro_export]
+macro_rules! actx {
+    () => {
+        (
+            &async_get(), // uid
+            file!(),      // cur file
+            line!(),      // cur line
         )
     };
 }
 
 #[cfg(test)]
 mod test {
-    use std::env;
     use crate::error_logging::ErrorLogging;
-    use crate::uid::get;
+    use crate::sync_uid::sync_get;
+    use std::env;
 
     #[test]
     fn test_ep() {
-
         env::set_var("RUST_LOG", "debug");
 
         env_logger::init();
