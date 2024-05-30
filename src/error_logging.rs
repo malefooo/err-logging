@@ -14,7 +14,7 @@ where
     fn elog(self, ctx: (&str, &str, u32)) -> Self::ResultType {
         self.map_err(|err| {
             let (uid, file, line) = ctx;
-            log::error!("[- uid -|- file -|- line -] [ <{uid}> | <{file}> | <{line}> ] - err [{err:?}]");
+            log::error!("[ <{uid}> | <{file}> | <{line}> ] - [{err:?}]");
             err
         })
     }
