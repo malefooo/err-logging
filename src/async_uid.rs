@@ -14,7 +14,7 @@ pub fn async_get() -> String {
 }
 
 #[pin_project]
-struct AsyncUid<Fut> {
+pub struct AsyncUid<Fut> {
     #[pin]
     future: Fut,
     uid: String,
@@ -38,7 +38,7 @@ where
 }
 
 #[allow(dead_code)]
-trait FutureExt: Future {
+pub trait FutureExt: Future {
     fn with_uid(self, uid: String) -> AsyncUid<Self>
     where
         Self: Sized,
