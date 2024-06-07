@@ -1,6 +1,6 @@
 [package]
 name = "err-logging"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["malefooo <784479660@qq.com>"]
 readme = "README.md"
